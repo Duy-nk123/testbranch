@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        th {
+            background-color: #f0f0f0;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CRUD Interface</h1>
+    </header>
+    <div class="container">
+        <h2>Add New Item</h2>
+        <form id="addItemForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity">
+            <button type="submit">Add Item</button>
+        </form>
+        
+        <h2>Items List</h2>
+        <table id="itemsTable">
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const addItemForm = document.getElementById('addItemForm');
+        const itemsTable = document.getElementById('itemsTable');
+        
+        addItemForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const quantity = document.getElementById('quantity').value;
+
+            if (name && quantity) {
+                const newRow = itemsTable.insertRow(-1);
+                const nameCell = newRow.insertCell(0);
+                const quantityCell = newRow.insertCell(1);
+                const actionsCell = newRow.insertCell(2);
+
+                nameCell.textContent = name;
+                quantityCell.textContent = quantity;
+                actionsCell.innerHTML = '<button>Edit</button> <button>Delete</button>';
+
+              
+                document.getElementById('name').value = '';
+                document.getElementById('quantity').value = '';
+            }
+        });
+
+        itemsTable.addEventListener('click', function(event) {
+            if (event.target.tagName === 'BUTTON') {
+                if (event.target.textContent === 'Delete') {
+                    event.target.parentElement.parentElement.remove();
+                } else if (event.target.textContent === 'Edit') {
+                    const row = event.target.parentElement.parentElement;
+                    const nameCell = row.cells[0];
+                    const quantityCell = row.cells[1];
+                    const name = nameCell.textContent;
+                    const quantity = quantityCell.textContent;
+
+                    document.getElementById('name').value = name;
+                    document.getElementById('quantity').value = quantity;
+
+                    row.remove();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
