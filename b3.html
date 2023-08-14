@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <script src="javascrip.js"></script>
+    <style>
+        
+body {
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 0;
+    
+  }
+  
+  .menu{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: black solid 1px;
+    text-align: center;
+    font-size: 25px;
+   
+  }
+  /* logo */
+  .logo{
+    padding-top: 20px;
+  }
+  .logo img {
+    vertical-align: middle;
+    width: 40px; 
+    height: 40px;
+  }
+  
+  .logo h5 {
+    display: inline;
+    margin-left: 10px;
+  }
+
+  /* menu giữa */
+  ul {
+
+    list-style-type: none;
+    padding-top: -15px;
+    display: flex;
+  }
+  
+  ul li {
+    margin-right: 20px;
+  }
+  /* login */
+  a {
+    color: black;
+    margin-top: 5px;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  .login{
+    text-align: center;
+    padding-top: 23px;
+    padding-right: 20px;
+  }
+/* buttom */
+  .btn_tryit{
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    width: 100px;
+    height: 40px;
+  }
+
+
+   
+    </style>
+</head>
+<body>
+   <div class="menu">
+     <section >
+        <div class="logo">
+        <img  src="/img/anh.jpg" alt="anh">
+        <h5 >paynet.io</h5>
+        </div>
+     </section>
+     <section>
+        <ul>
+            <li class="xanh">fess</li>
+            <li class="xanh">careers</li>
+            <li>faq</li>
+            <li class="xanh">contact</li>
+            <li>about</li>
+        </ul>
+     </section>
+     <section class="login">
+        <a href="#">Login</a>
+        <a href="#">/</a>
+        <a href="#">Sign Up</a>
+     </section>
+   </div>
+   <div style="font-size: 40px;">
+    <h1>SENDING MONEY ABROAD</h1>
+    <h1 class="xanh">HAS NEVER BEEN CHEAPER</h1>
+    <P>send money with no limits to over 140 countries. Enjoy the live exchange <br> rate with our flat $2 and a slick app that  made for you. </P>
+    <button class="btn_tryit"> Try it</button>
+   </div>
+  
+</body>
+</html>
