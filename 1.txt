@@ -1,0 +1,3 @@
+file 1
+deleted file 1
+ignore file
